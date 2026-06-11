@@ -27,7 +27,9 @@
             ?>
             <div class="category-card manage-category-card">
                 <h3> 📂 <?php echo htmlspecialchars($row["category_name"]); ?> </h3>
-                <?php if($row["category_name"] != "None"){ ?>
+                <?php
+                    if (!in_array($row["category_name"], ["None", "Important", "Study", "Work"])){
+                ?>
                 <a href="#" class="delete-link"
                     data-message="Do you want to delete the '<?php echo htmlspecialchars($row['category_name']); ?>' category?
                     All notes currently assigned to this category will automatically be moved to the 'None' category.
