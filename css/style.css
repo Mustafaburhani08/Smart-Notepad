@@ -325,24 +325,22 @@ body.dark-mode{
 
 .primary-btn{
 
-    background:
-        linear-gradient(
-            135deg,
-            #4F46E5,
-            #6366F1
-        );
+    background: #ffffff;
 
-    color:#fff;
+    color: var(--text);
 
-    height:52px;
+    border: 1px solid var(--border);
 
-    padding:0 24px;
+    height: 52px;
 
-    border-radius:14px;
+    padding: 0 24px;
+
+    border-radius: 14px;
 }
 
 .primary-btn:hover{
-    background:var(--primary-hover);
+    border-color: var(--primary);
+    background: #ffffff;
 }
 
 .secondary-btn{
