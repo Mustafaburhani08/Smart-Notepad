@@ -338,9 +338,20 @@ body.dark-mode{
     border-radius: 14px;
 }
 
-.primary-btn:hover{
+.primary-btn:hover,
+.secondary-btn:hover{
+    background: var(--primary);
+    color: #ffffff;
     border-color: var(--primary);
-    background: #ffffff;
+    box-shadow: 0 0 15px rgba(79, 70, 229, 0.35);
+}
+
+body.dark-mode .primary-btn:hover,
+body.dark-mode .secondary-btn:hover{
+    background: #273449;
+    color: #F8FAFC;
+    border-color: var(--primary);
+    box-shadow: none;
 }
 
 .secondary-btn{
@@ -356,10 +367,6 @@ body.dark-mode{
     padding:0 24px;
 
     border-radius:14px;
-}
-
-.secondary-btn:hover{
-    border-color:var(--primary);
 }
 /* ==========================
    DASHBOARD STATS
@@ -640,11 +647,14 @@ body.dark-mode .controls{
 
 }
 
+body.dark-mode .primary-btn,
 body.dark-mode .secondary-btn{
 
-    background:#1E293B;
+    background: #1E293B;
 
-    color:#F8FAFC;
+    color: #F8FAFC;
+
+    border: 1px solid #334155;
 
 }
 body.dark-mode .note-card{
@@ -1081,4 +1091,34 @@ body.dark-mode .menu-dropdown a{
     justify-content: center;
 
     gap: 14px;
+}
+/* ==========================
+   MANAGE CATEGORIES - DARK MODE
+========================== */
+
+body.dark-mode .manage-category-card {
+    background: #312e81;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-mode .manage-category-card h3 {
+    color: #e0f2fe;
+}
+
+body.dark-mode .delete-btn {
+    background: #B91C1C;
+    color: #FFFFFF;
+    border: none;
+}
+
+body.dark-mode .delete-btn:hover {
+    background: #DC2626;
+}
+.clickable-note {
+    cursor: pointer;
+}
+.clickable-note:hover {
+    transform: translateY(-2px);
+    transition: 0.2s ease;
 }
