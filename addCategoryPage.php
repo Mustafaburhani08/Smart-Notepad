@@ -14,26 +14,14 @@
 
     <label>Category Name</label>
 
-    <input
-        type="text"
-        name="category"
-        placeholder="Enter category name"
-        required
-    >
+    <input type="text" name="category" placeholder="Enter category name" required>
 
-    <button 
-        type="submit"
-        class="primary-btn"
-    >
-        + Save Category
-    </button>
+    <button type="submit" class="primary-btn">+ Save Category</button>
 
 </form>
 <div class="back-home-wrapper">
     <a href="index.php">
-        <button class="secondary-btn" type="button">
-            ← Back to Home
-        </button>
+        <button class="secondary-btn" type="button">← Back to Home</button>
     </a>
 </div>
 <script src="js/app.js"></script>

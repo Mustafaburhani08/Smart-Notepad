@@ -38,6 +38,19 @@ mysqli_fetch_assoc(
 
 $categoryName =
 $category["category_name"];
+$protectedCategories = [
+    "None",
+    "Important",
+    "Study",
+    "Work"
+];
+
+if (in_array($categoryName, $protectedCategories)) {
+
+    header("Location: ../manageCategories.php");
+
+    exit();
+}
 
 /*
 Move notes of this category to None
