@@ -108,9 +108,9 @@
                                 
                                 <a href="edit.php?id=<?php echo $row["note_id"]; ?>">Edit</a>
                                 <a href="php/unpinNote.php?id=<?php echo $row["note_id"]; ?>">Unpin</a>
-                                <a href="php/deleteNote.php?id=<?php echo $row["note_id"]; ?>"
-                                    onclick="return confirm('Delete this note?')"
-                                    class="danger-link">Delete
+                                <a href="#" class="delete-link" onclick="event.stopPropagation();" data-message="Delete this note?"
+                                    data-url="php/deleteNote.php?id=<?php echo $row['note_id']; ?>">
+                                    Delete
                                 </a>
                             </div>
                         </div>
@@ -145,12 +145,12 @@
                             🏷 <?php echo htmlspecialchars($row["category"]); ?>
                         </div>
                         <div class="note-menu">
-                            <button type="button" class="menu-btn">⋮</button>
-                            <div class="menu-dropdown">
+                            <button type="button" class="menu-btn" onclick="event.stopPropagation();">⋮</button>
+                            <div class="menu-dropdown" onclick="event.stopPropagation();">
                                 
                                 <a href="edit.php?id=<?php echo $row["note_id"]; ?>"> Edit </a>
                                 <a href="php/pinNote.php?id=<?php echo $row["note_id"]; ?>"> Pin </a>
-                               <a href="#" class="delete-link" data-message="Delete this note?" 
+                               <a href="#" class="delete-link" onclick="event.stopPropagation();" data-message="Delete this note?" 
                                data-url="php/deleteNote.php?id=<?php echo $row['note_id']; ?>">
                                     Delete
                                 </a>
