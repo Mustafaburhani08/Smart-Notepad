@@ -87,7 +87,8 @@
                     $sql="SELECT * FROM notes WHERE pinned=1";
                     $result = mysqli_query($conn, $sql);
                     while($row = mysqli_fetch_assoc($result)){ ?>
-                    <div class="note-card" data-category="<?php echo $row['category'];?>">
+                    <div class="note-card clickable-note" data-category="<?php echo $row['category']; ?>"
+                        onclick="window.location.href='viewNote.php?id=<?php echo $row['note_id']; ?>'">
                         <div class="note-header">
                             <h3 class="note-title">
                             <?php echo htmlspecialchars($row["title"]); ?>
@@ -102,9 +103,9 @@
                             🏷 <?php echo htmlspecialchars($row["category"]); ?>
                         </div>
                         <div class="note-menu">
-                            <button type="button" class="menu-btn">⋮</button>
-                            <div class="menu-dropdown">
-                                <a href="viewNote.php?id=<?php echo $row["note_id"]; ?>">View</a>
+                            <button type="button" class="menu-btn" onclick="event.stopPropagation();">⋮</button>
+                            <div class="menu-dropdown" onclick="event.stopPropagation();">
+                                
                                 <a href="edit.php?id=<?php echo $row["note_id"]; ?>">Edit</a>
                                 <a href="php/unpinNote.php?id=<?php echo $row["note_id"]; ?>">Unpin</a>
                                 <a href="php/deleteNote.php?id=<?php echo $row["note_id"]; ?>"
@@ -129,7 +130,8 @@
                         $result=mysqli_query($conn, $sql);
                         while($row=mysqli_fetch_assoc($result)){
                     ?>
-                    <div class="note-card" data-category="<?php echo $row['category']; ?>">
+                    <div class="note-card clickable-note" data-category="<?php echo $row['category'];?>"
+                        onclick="window.location.href='viewNote.php?id=<?php echo $row['note_id']; ?>'">
                     <div class="note-header">
                             <h3 class="note-title">
                                 <?php echo htmlspecialchars($row["title"]); ?>
@@ -145,7 +147,7 @@
                         <div class="note-menu">
                             <button type="button" class="menu-btn">⋮</button>
                             <div class="menu-dropdown">
-                                <a href="viewNote.php?id=<?php echo $row["note_id"]; ?>"> View </a>
+                                
                                 <a href="edit.php?id=<?php echo $row["note_id"]; ?>"> Edit </a>
                                 <a href="php/pinNote.php?id=<?php echo $row["note_id"]; ?>"> Pin </a>
                                <a href="#" class="delete-link" data-message="Delete this note?" 
