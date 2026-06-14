@@ -30,11 +30,18 @@
                 <textarea id="content" name="content" rows="10"><?php echo htmlspecialchars($row["content"]); ?></textarea>
                 <label for="category">Category</label>
                 <select id="category" name="category">
-                    <option value="Study" <?php if($row["category"]=="Study") echo "selected"; ?>>Study</option>
-                    <option value="Personal" <?php if($row["category"]=="Personal") echo "selected"; ?>>Personal</option>
-                    <option value="Important" <?php if($row["category"]=="Important") echo "selected"; ?>>Important</option>
-                    <option value="Work" <?php if($row["category"]=="Work") echo "selected"; ?>>Work</option>
-                    <option value="None" <?php if($row["category"]=="None") echo "selected"; ?>>None</option>
+                    <?php $categoryQuery = "SELECT category_name FROM categories ORDER BY category_name ASC";
+                        $categoryResult = mysqli_query($conn, $categoryQuery);
+                        while ($category = mysqli_fetch_assoc($categoryResult)) {
+                        $selected = ($row["category"] == $category["category_name"]) ? "selected" : "";
+                    ?>
+                    <option value="<?php echo htmlspecialchars($category["category_name"]); ?>"
+                        <?php echo $selected; ?>>
+                        <?php echo htmlspecialchars($category["category_name"]); ?>
+                    </option>
+                    <?php
+                    }
+                    ?>
                 </select>
                 <button type="submit" class="primary-btn"> ✏️ Update Note </button>
             </form>
